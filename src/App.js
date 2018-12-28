@@ -50,7 +50,7 @@ class ToDoList extends Component {
     return (
       <div>
         <h1>To Do List</h1>
-        <p>{job.map(work => <ToDoItem works={work.text} done={work.done} />)}</p>
+        <p>{job.map(work => <ToDoItem text={work.text} done={work.done} />)}</p>
         <input type="text" onChange={this.updateDraft} value={draft}></input>
         <button onClick={this.addToDo}>Add</button>
       </div>
