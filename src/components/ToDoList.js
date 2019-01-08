@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ToDoItem from './ToDoItem.js'
 import NewToDoForm from './NewToDoForm.js'
 import styled from 'styled-components'
+import banner from '../images/banner.jpg'
 
 const Container = styled.div`
   background: #2b2e39;
@@ -27,7 +28,7 @@ const DestroyButton = styled.button`
 
 class ToDoList extends Component {
     componentDidMount = () => {
-      fetch('http://localhost:5000/todo_items')
+      fetch('https://jsonplaceholder.typicode.com/todos/1')
         .then(response => response.json())
         .then(json => console.log(json))
     }
@@ -39,7 +40,8 @@ class ToDoList extends Component {
 
     state = {
       tasks: this.props.tasks,
-      draft: ''
+      draft: '',
+      message: ''
     }
   
     updateDraft = event => {
@@ -56,6 +58,12 @@ class ToDoList extends Component {
         // this.setState({tasks: [...tasksList, {text: draft}], draft: ""})
     }}
 
+    removeTask = (index) => {
+      const task = Object.assign([], this.state.tasks)
+      task.splice(index, 1)
+      this.setState({tasks: task})
+    }
+
     removeAll = () => {
       this.setState({tasks: []})
     }
@@ -66,9 +74,10 @@ class ToDoList extends Component {
       
       return (
         <Container>
+          <img src={banner} />
           <Header>{title}</Header>
           <DestroyButton onClick={this.removeAll}>Remove all</DestroyButton>
-          <p>{tasks.map(work => <ToDoItem text={work.text} done={work.done} />)}</p>
+          <p>{tasks.map(work => <ToDoItem text={work.text} done={work.done} remove={this.removeTask.bind(this)} />)}</p>
           <NewToDoForm 
             onSubmit={this.addToDo}
             onChange={this.updateDraft}

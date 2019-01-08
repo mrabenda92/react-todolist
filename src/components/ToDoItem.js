@@ -24,11 +24,12 @@ class ToDoItem extends Component {
     }
   
     render() {
-      const { text } = this.props
+      const { text, remove } = this.props
   
       return (
         <Item onClick={this.toggleDone} done={this.state.done}>
           <p>{text}</p>
+          <button onClick={remove}>Remove</button>
         </Item>
       )
     }
