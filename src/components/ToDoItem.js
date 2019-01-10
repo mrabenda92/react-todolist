@@ -10,6 +10,17 @@ const Item = styled.div`
   // text-decoration: ${props => props.done ? 'line-through' : 'auto'}
 `
 
+const RemoveButton = styled.button`
+  border-radius: 10px;
+  background: #ff4d4d;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
+  &:hover {
+      background: red;
+  }
+`
+
 class ToDoItem extends Component {
     static defaultProps = {
       done: false
@@ -29,7 +40,7 @@ class ToDoItem extends Component {
       return (
         <Item onClick={this.toggleDone} done={this.state.done}>
           <p>{text}</p>
-          <button onClick={remove}>Remove</button>
+          <RemoveButton onClick={remove}>Remove</RemoveButton>
         </Item>
       )
     }

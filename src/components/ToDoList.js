@@ -20,10 +20,13 @@ const Header = styled.h1`
 
 const DestroyButton = styled.button`
   border-radius: 10px;
-  background: red;
+  background: #ff4d4d;
   padding: 5px;
   color: white;
   margin-bottom: 10px;
+  &:hover {
+    background: red;
+}
 `
 
 class ToDoList extends Component {
@@ -40,8 +43,7 @@ class ToDoList extends Component {
 
     state = {
       tasks: this.props.tasks,
-      draft: '',
-      message: ''
+      draft: ''
     }
   
     updateDraft = event => {
