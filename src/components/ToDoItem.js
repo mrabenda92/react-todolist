@@ -6,8 +6,8 @@ const Item = styled.div`
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 7px;
-  color: ${props => props.done ? '#1fd84d' : '#c7c8cb'}
-  text-decoration: ${props => props.done ? 'line-through' : 'auto'}
+  // color: ${props => props.done ? '#1fd84d' : '#c7c8cb'}
+  // text-decoration: ${props => props.done ? 'line-through' : 'auto'}
 `
 
 class ToDoItem extends Component {

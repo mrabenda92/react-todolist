@@ -27,11 +27,11 @@ const DestroyButton = styled.button`
 `
 
 class ToDoList extends Component {
-    componentDidMount = () => {
-      fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(json => console.log(json))
-    }
+    // componentDidMount = () => {
+    //   fetch('https://jsonplaceholder.typicode.com/todos/1')
+    //     .then(response => response.json())
+    //     .then(json => console.log(json))
+    // }
 
     static defaultProps = {
       tasks: [], 
