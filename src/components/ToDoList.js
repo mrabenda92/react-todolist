@@ -59,7 +59,7 @@ class ToDoList extends Component {
     }}
 
     removeTask = (index) => {
-      const task = Object.assign([], this.state.tasks)
+      const task = this.state.tasks
       task.splice(index, 1)
       this.setState({tasks: task})
     }
@@ -77,7 +77,7 @@ class ToDoList extends Component {
           <img src={banner} />
           <Header>{title}</Header>
           <DestroyButton onClick={this.removeAll}>Remove all</DestroyButton>
-          <p>{tasks.map(work => <ToDoItem text={work.text} done={work.done} remove={this.removeTask.bind(this)} />)}</p>
+          <p>{tasks.map((work, index) => <ToDoItem text={work.text} key={index} done={work.done} remove={() => this.removeTask(index)} />)}</p>
           <NewToDoForm 
             onSubmit={this.addToDo}
             onChange={this.updateDraft}
